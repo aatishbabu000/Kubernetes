@@ -132,13 +132,13 @@ root@worker:~# history
    39  EOF
    40  sudo sysctl --system
    41  sudo apt-mark hold kubelet kubeadm kubectl
-   42  sudo apt-mark hold cri-o cri-o-runc
+   42  sudo apt-mark hold cri-o cri-o-runc 
    43  vim /etc/fstab
    44  apt install vim ncdu htop
    45  vim /etc/fstab
    46  init 6
    47  crictl ps
-   48  kubeadm join 192.168.3.106:6443 --token hhz8ev.x8ymutjgjtgqaqwv         --discovery-token-ca-cert-hash sha256:407fd922350cfda957f03674a6e91957df3afc8352d900044c57ccfac58f6445
+   48  kubeadm join ---- here should be genrated key
    49  crictl ps
    50  exit
    51  clear
