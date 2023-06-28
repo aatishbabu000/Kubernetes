@@ -1,0 +1,147 @@
+
+Master None cmd -
+-------------------------------------------------
+root@master:~# history
+    1  clear
+    2  systemctl restart NetworkManager
+    3  apt install openss-server
+    4  apt update
+    5  reboot
+    6  ll /usr/share/keyrings/libcontainers-archive-keyring.gpg
+    7  apt update
+    8  yum install vim ncdu htop
+    9  apt install vim ncdu htop
+   10  apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common  -y
+   11  export VERSION=1.26
+   12  export OS=xUbuntu_22.04
+   13  echo -e ${VERSION}
+   14  echo -e ${OS}
+   15  echo "deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+   16  echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
+   17  sleep 5
+   18  mkdir -p /usr/share/keyrings
+   19  curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | gpg --dearmor -o /usr/share/keyrings/libcontainers-archive-keyring.gpg  --yes --batch
+   20  curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/Release.key | gpg --dearmor -o /usr/share/keyrings/libcontainers-crio-archive-keyring.gpg  --yes --batch
+   21  apt-get update
+   22  apt-get install cri-o cri-o-runc -y
+   23  systemctl enable crio.service
+   24  systemctl start crio.service
+   25  wget -q -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/apt-key.gpg --yes
+   26  wget -q -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   27  echo deb http://apt.kubernetes.io/ kubernetes-xenial main | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   28  sudo apt install kubelet kubeadm -y
+   29  apt update
+   30  sudo apt install kubelet kubeadm -y
+   31  a
+   32  kubeadm version
+   33  kubectl version
+   34  sudo apt remove kubelet kubeadm -y
+   35  apt autoremove
+   36  apt autoclean
+   37  sudo apt remo
+   38  apt install kubelet:1.26 kubeadm:1.26
+   39  sudo apt install kubelet kubeadm -y
+   40  cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+   41  overlay
+   42  br_netfilter
+   43  EOF
+   44  sudo modprobe overlay
+   45  sudo modprobe br_netfilter
+   46  lsmod | grep br_netfilter
+   47  cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+   48  net.bridge.bridge-nf-call-iptables = 1
+   49  net.bridge.bridge-nf-call-ip6tables = 1
+   50  net.ipv4.ip_forward = 1
+   51  EOF
+   52  sudo sysctl --system
+   53  sudo apt-mark hold kubelet kubeadm kubectl
+   54  sudo apt-mark hold cri-o cri-o-runc
+   55  crictl ps
+   56  swapoff -a
+   57  vim /etc/fstab
+   58  ufw status
+   59  init 6
+   60  clear
+   61  apt update && apt upgrade
+   62  df -hT
+   63  df -kh
+   64  htop
+   65  kubeadm init --pod-network-cidr=10.0.0.0/16 >> cluster_initialized.txt
+   66  cat cluster_initialized.txt
+   67  mkdir /root/.kube
+   68  cp /etc/kubernetes/admin.conf /root/.kube/config
+   69  kubectl get nodes
+   70  kubectl get ns
+   71  kubectl token list
+   72  kubadm token lists
+   73  kubeadm token list
+   74  kubectl get nodes
+   75  crictl ps
+   76  kubectl get ns
+   77  kubectl -n kube-system get pod
+   78  kubectl -n kube-public get pod
+   79  kubectl -n kube-node-lease get pod
+   80  kubectl -n default get pod
+   81  exit
+   82  clear
+   83  histroy
+   84  history
+root@master:~#
+
+Workernode setup -
+----------------------------------
+root@worker:~# history
+    1  reboot
+    2  clear
+    3  apt update && apt upgrade
+    4  clear
+    5  ls
+    6  df -hT
+    7  df -kh
+    8  apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common  -y
+    9  export VERSION=1.26
+   10  export OS=xUbuntu_22.04
+   11  echo -e ${VERSION}
+   12  echo -e ${OS}
+   13  echo "deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+   14  echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
+   15  mkdir -p /usr/share/keyrings
+   16  curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | gpg --dearmor -o /usr/share/keyrings/libcontainers-archive-keyring.gpg  --yes --batch
+   17  curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/Release.key | gpg --dearmor -o /usr/share/keyrings/libcontainers-crio-archive-keyring.gpg  --yes --batch
+   18  apt-get update
+   19  apt-get install cri-o cri-o-runc -y
+   20  systemctl enable crio.service
+   21  systemctl start crio.service
+   22  wget -q -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/apt-key.gpg --yes
+   23  wget -q -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   24  echo deb http://apt.kubernetes.io/ kubernetes-xenial main | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   25  swapoff -a
+   26  sudo apt update
+   27  sudo apt install kubelet kubeadm -y
+   28  cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+   29  overlay
+   30  br_netfilter
+   31  EOF
+   32  sudo modprobe overlay
+   33  sudo modprobe br_netfilter
+   34  lsmod | grep br_netfilter
+   35  cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+   36  net.bridge.bridge-nf-call-iptables = 1
+   37  net.bridge.bridge-nf-call-ip6tables = 1
+   38  net.ipv4.ip_forward = 1
+   39  EOF
+   40  sudo sysctl --system
+   41  sudo apt-mark hold kubelet kubeadm kubectl
+   42  sudo apt-mark hold cri-o cri-o-runc
+   43  vim /etc/fstab
+   44  apt install vim ncdu htop
+   45  vim /etc/fstab
+   46  init 6
+   47  crictl ps
+   48  kubeadm join 192.168.3.106:6443 --token hhz8ev.x8ymutjgjtgqaqwv         --discovery-token-ca-cert-hash sha256:407fd922350cfda957f03674a6e91957df3afc8352d900044c57ccfac58f6445
+   49  crictl ps
+   50  exit
+   51  clear
+   52  history
+root@worker:~#
+*****************************************************************************************************************************************************
